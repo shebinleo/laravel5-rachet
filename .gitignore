@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+.env
+#dist
+.tmp
+.sass-cache
+.DS_Store
+.idea
