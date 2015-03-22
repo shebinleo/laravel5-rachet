@@ -2,6 +2,11 @@
 
 @section('content')
 
+  <div class="container">
+    <div class="row">
+      <h1>Username: <span id="username"></span></h1>
+    </div>
+  </div>
   <script type="text/x-handlebars">
     @{{outlet}}
 
@@ -11,7 +16,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Laravel 5 Chat</h1>
                 <table class="table table-striped">
                     @{{#each message in model}}
                         <tr>

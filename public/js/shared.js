@@ -38,6 +38,7 @@ App.Message.FIXTURES = [
 ];
 
 var store;
+var user;
 
 App.IndexRoute = Ember.Route.extend({
   "init" : function() {
@@ -68,6 +69,8 @@ App.IndexController = Ember.ArrayController.extend({
           "type" : "name",
           "data" : command.split("/name")[1]
         }));
+        user.name = command.split("/name")[1];
+        updateUserName(user.id, user.name);
 
       } else {
 
@@ -75,6 +78,7 @@ App.IndexController = Ember.ArrayController.extend({
           "type" : "message",
           "data" : command
         }));
+        addMessageToStore(user, command);
 
       }
 
@@ -120,21 +124,22 @@ try {
 
       switch (data.message.type) {
 
+        case "user":
+
+          user = data.user;
+          updateUserName(data.user.id, data.user.name);
+
+          break;
+
         case "name":
 
-          $(".name-" + data.user.id).html(data.user.name);
+          updateUserName(data.user.id, data.user.name);
 
           break;
 
         case "message":
 
-          store.push("message", {
-            "id"            : id++,
-            "user_id"       : data.user.id,
-            "user_name"     : data.user.name || "User "+data.user.id,
-            "user_id_class" : "name-" + data.user.id,
-            "message"       : data.message.data
-          });
+          addMessageToStore(data.user, data.message.data);
 
           break;
 
@@ -152,4 +157,21 @@ try {
 
   console.log("exception: " + e);
 
+}
+
+function updateUserName(id, name) {
+  $(".name-" + id).html(name);
+  if(id == user.id) {
+    $("#username").text(name || "User "+id);
+  }
+}
+
+function addMessageToStore(user, message) {
+  store.push("message", {
+    "id"            : id++,
+    "user_id"       : user.id,
+    "user_name"     : user.name || "User "+user.id,
+    "user_id_class" : "name-" + user.id,
+    "message"       : message
+  });
 }
