@@ -1,8 +1,6 @@
 <?php namespace Chat;
 
-use Chat\Chat;
-use Chat\ChatInterface;
-use Chat\UserInterface;
+
 use Illuminate\Console\Command;
 use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
