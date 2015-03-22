@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+  <h1>Blog&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" onclick="$.get('/publish');">Publish</button></h1>
   <div class="welcome"></div>
 @endsection
 

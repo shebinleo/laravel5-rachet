@@ -12,8 +12,9 @@
 */
 
 Route::get('/', 'ChatController@index');
+Route::get('/chat', 'ChatController@index');
 Route::get('/blog', 'ChatController@create');
-Route::get('/push', 'ChatController@store');
+Route::get('/publish', 'ChatController@store');
 
 Route::get('home', 'HomeController@index');;
 

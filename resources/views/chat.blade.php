@@ -4,7 +4,7 @@
 
   <div class="container">
     <div class="row">
-      <h1>Username: <span id="username"></span></h1>
+      <h1>Chat <small>Username: <span id="username"></span></small></h1>
     </div>
   </div>
   <script type="text/x-handlebars">
