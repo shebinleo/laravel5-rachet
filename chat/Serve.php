@@ -1,4 +1,4 @@
-<?php namespace App\Console\Commands;
+<?php namespace Chat;
 
 use Chat\Chat;
 use Chat\ChatInterface;

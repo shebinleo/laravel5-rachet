@@ -1,6 +1,6 @@
-<?php namespace App\Providers;
+<?php namespace Chat;
 
-use App\Console\Commands\Serve;
+use Chat\Serve;
 use Chat\Chat;
 use Chat\User;
 use Evenement\EventEmitter;
