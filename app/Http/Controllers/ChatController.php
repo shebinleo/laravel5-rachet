@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Faker\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use ZMQ;
 use ZMQContext;
 
@@ -35,6 +36,7 @@ class ChatController extends Controller {
     $socket = $context->getSocket(ZMQ::SOCKET_PUSH, 'my pusher1');
     $socket->connect("tcp://127.0.0.1:5555");
     $socket->send(json_encode($entryData));
+    return Response::json('Published!');
   }
 
 }

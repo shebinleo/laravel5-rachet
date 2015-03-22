@@ -13,8 +13,8 @@
         'ws://127.0.0.1:7778' , function() {
           conn.subscribe('news', function(topic, data) {
             console.log('New article published to category "' + topic + '" : ' + data.title);
-            $('.welcome').append(
-                '<div>New article published to category "' + topic + '" <em>' + new Date(data.when) + '</em>'
+            $('.welcome').prepend(
+                '<div>New article published to category "' + topic + '" <em>' + new Date(data.when*1000) + '</em>'
                 + '<h3>' + data.title + '</h3>'
                 + "<p>" + data.article + '</p>'
                 + '<hr></div>'
